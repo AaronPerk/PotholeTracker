@@ -1,0 +1,84 @@
+﻿<script>$(function () { $("#myNavbar").find("[href='/function/review']").parent().addClass("active"); })</script>
+@*<script src="~/Scripts/MapViewControl.js"></script>*@
+<script src="~/Scripts/reviewPothole.js"></script>
+@using Capstone.Web.Models
+@model List<PotholeModel>
+
+@{
+    ViewBag.Title = "Employee Portal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        placePotholes(@Html.Raw(Json.Encode(Model.ToArray())), "");
+    })
+</script>
+
+<div id="reviewPanel" class="col-lg-4">
+
+
+
+    <table class="table">
+        <tbody>
+            @{
+                //int count = 0;
+                foreach (PotholeModel ph in Model)
+                {
+                    string phAddr = "phAddr" + ph.PotholeID.ToString();
+
+                    <tr onclick='centerOnPoint(@ph.Latitude,@ph.Longitude, @ph.PotholeID)'>
+                        <td>
+                            <span id="@phAddr" class="streetAddress1"></span>
+                            <script>fillAddress(@ph.Latitude, @ph.Longitude, @ph.PotholeID)</script>
+                            <br />
+                            <p class="latlng">(Lat: @ph.Latitude.ToString(), </p>
+                            <p class="latlng">Lng: @ph.Longitude)</p><br/>
+                            <p class="dateInfo">Reported: @ph.ReportDate.Date.ToShortDateString()</p>
+                            @if (ph.InspectDate != null)
+                            {
+                                <p class="dateInfo">Inspected: @(((DateTime)ph.InspectDate).Date.ToShortDateString())</p>
+                            }
+                            @if (ph.RepairStartDate != null)
+                            {
+                                <p class="dateInfo">Repair Started: @(((DateTime)ph.RepairStartDate).Date.ToShortDateString())</p>
+                            }
+                            @if (ph.RepairEndDate != null)
+                            {
+                                <p class="dateInfo">Repair Completed : @(((DateTime)ph.RepairEndDate).Date.ToShortDateString())</p>
+                            }
+                        </td>
+                        <td>
+                            <p id="potholeStatus">@ph.GetStatus()</p>
+                        </td>
+                       
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    @*Highlight Selected Row in table*@
+    <script type="text/javascript">
+        $('.table tbody tr').click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    </script>
+    <script type="text/javascript">
+        $('p:contains("Repair Complete")').css('color','#00e029');
+    </script>
+    <script type="text/javascript">
+        $('p:contains("Repair In Progress")').css('color', '#1b96fe');
+    </script>
+    <script type="text/javascript">
+        $('p:contains("Awaiting Repair")').css('color', '#f4dd00');
+    </script>
+    <script type="text/javascript">
+        $('p:contains("Awaiting Inspection")').css('color', '#ff0c00');
+    </script>
+
+</div>
+<div id="mapContainer" class="col-lg-8">
+    <div id="map"></div>
+</div>
+

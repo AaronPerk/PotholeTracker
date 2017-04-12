@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+@model Capstone.Web.Models.User
+@using Capstone.Web.Extensions
+
+@if (Model == null)//there is no user logged in
+{
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/home/index">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/register"><span class="glyphicon glyphicon-user"></span> Register </a></li>
+            <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+        </ul>
+    </div>
+}
+else if(Model.UserType == "r") // A user is logged in
+{
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/function/report">Report Pothole</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">Welcome @Model.Name.Split(' ')[0]</li>
+            <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+        </ul>
+    </div>
+}
+else if (Model.UserType == "e") // A user is logged in
+{
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/function/report">Report Pothole</a></li>
+            @*<li><a href="/function/review">Employee Portal</a></li>*@
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Employee Portal<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='/function/review/?option=all'>All Potholes</a></li>
+                    <li><a href='/function/review/?option=uninspected'>Awaiting Inspection</a></li>
+                    <li><a href='/function/review/?option=inspected'>Awaiting Repair</a></li>
+                    <li><a href='/function/review/?option=inRepair'>Repair in Progress</a></li>
+                    <li><a href='/function/review/?option=complete'>Repair Completed</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">Welcome @Model.Name.Split(' ')[0]</li>
+            <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
+        </ul>
+    </div>
+}

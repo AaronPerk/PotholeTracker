@@ -1,0 +1,39 @@
+﻿<script>$(function (){ $("#myNavbar").find("[href='/user/register']").parent().addClass("active"); })</script>
+
+@model Capstone.Web.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            @Html.ValidationMessage("existing-user")
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { placeHolder = "Email", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { placeHolder = "Password", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { placeHolder = "Re-Type Password", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { placeHolder = "Name", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <button type="submit" class="btn btn-default">Register</button>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+}

@@ -1,0 +1,20 @@
+﻿<script>$(function () { $("#myNavbar").find("[href='/home/index']").parent().addClass("active"); })</script>
+<script src="~/Scripts/MapViewControl.js"></script>
+@using Capstone.Web.Models
+@model List<PotholeModel>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    $(document).ready(function () {
+        placePotholes(@Html.Raw(Json.Encode(Model.ToArray())), "");
+    })
+</script>
+
+<div id="map"></div>
+
+@*<div id="map" class="employeeMap"></div>*@

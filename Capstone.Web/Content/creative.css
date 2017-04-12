@@ -1,0 +1,80 @@
+﻿body{
+    height:100%;
+}
+
+.field-validation-error {
+    color: red;
+    text-align: center;
+}
+
+#map {
+    height: 620px;
+    /*width: 100%;*/
+}
+
+nav.navbar.navbar-default{
+    margin-bottom: 0px;
+    border-top:0px;
+}
+
+.navbar-brand{
+    font-weight:600;
+}
+
+.employeeMap{
+   
+}
+
+#reviewPanel{
+    display:inline-block;
+    /*overflow-y: scroll;*/
+    overflow: auto;
+    height: 620px;
+}
+
+.streetAddress1 {
+    font-weight: bold;
+    color: #4582ec;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.latlng {
+    font-size: x-small;
+    display: inline;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-control {
+    padding: 6px !important;
+    font-size: 12px !important;
+    height: 30px !important;
+    margin-bottom: 0px !important;
+}
+
+.btn-xs{
+    font-size: 12px !important;
+}
+
+.btn-default{
+    margin-bottom:10px !important;
+}
+
+#mapContainer{
+    margin-left:0px !important;
+    padding-left:0px;
+}
+
+#potholeStatus {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 50%;
+    text-align: center;
+}
+
+.dateInfo {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: small;
+    font-weight:bold;
+}
+
+#potholeButton{
+    margin-bottom:0px !important;
+}
