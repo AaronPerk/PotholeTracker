@@ -1,5 +1,10 @@
 # PotholeTracker
+
 PotholeTracker is an ASP.NET MVC Web App built using the Google Maps API to report potholes and track the progress of their repair. Role-based authentication allows different permission levels. For example: only a city employee can access the employee portal.
+
+## Getting Started
+
+In order to get PotholeTracker up and running make sure you install Ninject, and you should be good to go!
 
 ## Database Folder
 
