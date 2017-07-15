@@ -1,10 +1,5 @@
-# Final Capstone
-
-## What Projects Are Included w/Repository
-
-- **Capstone.Web** - ASP.NET MVC Project
-- **Capstone.Web.Tests** - Unit Tests and Integration Tests
-- **Capstone.UITests** - Cucumber Tests
+# PotholeTracker
+PotholeTracker is an ASP.NET MVC Web App built using the Google Maps API to report potholes and track the progress of their repair. Role-based authentication allows different permission levels. For example: only a city employee can access the employee portal.
 
 ## Database Folder
 
