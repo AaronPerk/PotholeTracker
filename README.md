@@ -4,7 +4,12 @@ PotholeTracker is an ASP.NET MVC Web App built using the Google Maps API to repo
 
 ## Demo
 
+Pothole Reporting
+
+![alt text](https://media.giphy.com/media/ksOLtzoUWEgAE/giphy.gif)
+
 Employee Portal
+
 ![alt text](https://media.giphy.com/media/YsQAOHoJ5h7dm/giphy.gif)
 
 ## Getting Started
